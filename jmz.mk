@@ -21,10 +21,10 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/du/config/common_full_phone.mk)
-$(call inherit-product, vendor/du/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/jmz/config/common_full_phone.mk)
+$(call inherit-product, vendor/jmz/config/nfc_enhanced.mk)
 
-PRODUCT_NAME := du_shamu
+PRODUCT_NAME := jmz_shamu
 PRODUCT_DEVICE := shamu
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 6
@@ -37,4 +37,4 @@ BUILD_FINGERPRINT=google/shamu/shamu:7.0/NBD91P/3397968:user/release-keys \
 PRIVATE_BUILD_DESC="shamu-user 7.0 NBD91P 3397968 release-keys"
 
 $(call inherit-product, device/moto/shamu/device.mk)
-$(call inherit-product-if-exists, vendor/motorola/shamu/device-vendor.mk)
+$(call inherit-product, vendor/moto/shamu/device-vendor.mk)

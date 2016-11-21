@@ -19,6 +19,13 @@
 #
 # Everything in this directory will become public
 
+GAPPS_VARIANT := stock
+PRODUCT_PACKAGES += \
+    PixelLauncher \
+    GCS
+
+GAPPS_FORCE_PACKAGE_OVERRIDES := true
+
 # Kernel inline
 TARGET_KERNEL_SOURCE := kernel/moto/shamu
 TARGET_KERNEL_CONFIG := shamu_defconfig
@@ -346,10 +353,6 @@ endif
 # Enable for volte call
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
-# setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
-
 $(call inherit-product-if-exists, hardware/qcom/msm8x84/msm8x84.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8x84/msm8x84-gpu-vendor.mk)
 
@@ -409,3 +412,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # OEM Unlock reporting
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.oem_unlock_supported=1
+
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
